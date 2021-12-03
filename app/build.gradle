@@ -49,4 +49,8 @@ dependencies {
     // Dependency Injection
     implementation "com.google.dagger:hilt-android:2.40.1"
     kapt "com.google.dagger:hilt-compiler:2.40.1"
+
+
+    // Retrofit for networking
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
 }
