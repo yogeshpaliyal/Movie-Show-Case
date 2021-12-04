@@ -7,27 +7,26 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.yogeshpaliyal.movieshowcase.data.model.MovieModel
-import com.yogeshpaliyal.movieshowcase.databinding.ItemDashboardCarouselBinding
+import com.yogeshpaliyal.movieshowcase.databinding.ItemNowShowingBinding
 import com.yogeshpaliyal.movieshowcase.ui.MoviesDiffUtil
 
-class HeaderCarouselAdapter :
-    ListAdapter<MovieModel, HeaderCarouselAdapter.ViewHolder>(
+class GridListAdapter :
+    ListAdapter<MovieModel, GridListAdapter.ViewHolder>(
         AsyncDifferConfig.Builder(
             MoviesDiffUtil()
         ).build()
     ) {
-    inner class ViewHolder(val binding: ItemDashboardCarouselBinding) :
+    inner class ViewHolder(val binding: ItemNowShowingBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(movieModel: MovieModel) {
-            Glide.with(binding.img).load(movieModel.getBackdropPath()).into(binding.img)
+            Glide.with(binding.img).load(movieModel.getPosterPath()).into(binding.img)
         }
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
-            ItemDashboardCarouselBinding.inflate(
+            ItemNowShowingBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
                 false
