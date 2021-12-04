@@ -28,7 +28,4 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:id="@+id/recyclerView"/>
 
-
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -13,6 +13,11 @@ class DashboardFragment : Fragment() {
 
     private lateinit var binding: FragmentDashboardBinding
 
+    private val carousedAdapter by lazy {
+        HeaderCarouselAdapter()
+    }
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
