@@ -3,4 +3,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="now_showing">Now Showing</string>
+
+    <string name="transition_name_card">card</string>
+    <string name="transition_name_image">image</string>
 </resources>

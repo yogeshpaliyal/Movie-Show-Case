@@ -10,7 +10,7 @@ import com.yogeshpaliyal.movieshowcase.data.model.MovieModel
 import com.yogeshpaliyal.movieshowcase.databinding.ItemDashboardCarouselBinding
 import com.yogeshpaliyal.movieshowcase.ui.MoviesDiffUtil
 
-class HeaderCarouselAdapter :
+class HeaderCarouselAdapter(private val listener: MoviesInterface) :
     ListAdapter<MovieModel, HeaderCarouselAdapter.ViewHolder>(
         AsyncDifferConfig.Builder(
             MoviesDiffUtil()
@@ -21,6 +21,9 @@ class HeaderCarouselAdapter :
 
         fun bind(movieModel: MovieModel) {
             Glide.with(binding.img).load(movieModel.getBackdropPath()).into(binding.img)
+            binding.cardView.setOnClickListener {
+                listener.onItemClick(currentList[bindingAdapterPosition], binding.cardView, binding.img)
+            }
         }
 
     }

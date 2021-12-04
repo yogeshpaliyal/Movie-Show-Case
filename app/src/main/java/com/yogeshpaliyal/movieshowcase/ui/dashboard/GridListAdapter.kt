@@ -10,7 +10,7 @@ import com.yogeshpaliyal.movieshowcase.data.model.MovieModel
 import com.yogeshpaliyal.movieshowcase.databinding.ItemNowShowingBinding
 import com.yogeshpaliyal.movieshowcase.ui.MoviesDiffUtil
 
-class GridListAdapter :
+class GridListAdapter(private val listener: MoviesInterface) :
     ListAdapter<MovieModel, GridListAdapter.ViewHolder>(
         AsyncDifferConfig.Builder(
             MoviesDiffUtil()
@@ -21,6 +21,9 @@ class GridListAdapter :
 
         fun bind(movieModel: MovieModel) {
             Glide.with(binding.img).load(movieModel.getPosterPath()).into(binding.img)
+            binding.cardView.setOnClickListener {
+                listener.onItemClick(currentList[bindingAdapterPosition], binding.cardView, binding.img)
+            }
         }
     }
 

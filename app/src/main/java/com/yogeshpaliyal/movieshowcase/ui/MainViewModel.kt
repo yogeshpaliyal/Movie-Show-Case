@@ -19,9 +19,19 @@ class MainViewModel @Inject constructor(val apiInterface: ApiInterface) : ViewMo
     private val _nowShowing = MutableLiveData<List<MovieModel>>()
     val nowShowing = _nowShowing.toLiveData()
 
+    private val _selectedMovieModel = MutableLiveData<MovieModel>()
+    val selectedMovieModel = _selectedMovieModel.toLiveData()
+
+    var selectedModel : MovieModel?= null
+
     init {
         loadTrendingMovies()
         loadNowShowing()
+    }
+
+    fun setSelectedMovie(movieModel: MovieModel){
+        selectedModel = movieModel
+        _selectedMovieModel.value = movieModel
     }
 
     fun loadTrendingMovies() {
