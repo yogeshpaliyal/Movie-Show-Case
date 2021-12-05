@@ -6,11 +6,12 @@
         <entry key="..\:/Users/paliy/AndroidStudioProjects/MovieShowcase/app/src/main/res/layout/activity_dashboard.xml" value="0.1" />
         <entry key="..\:/Users/paliy/AndroidStudioProjects/MovieShowcase/app/src/main/res/layout/activity_detail.xml" value="0.1" />
         <entry key="..\:/Users/paliy/AndroidStudioProjects/MovieShowcase/app/src/main/res/layout/activity_main.xml" value="0.1" />
-        <entry key="..\:/Users/paliy/AndroidStudioProjects/MovieShowcase/app/src/main/res/layout/fragment_dashboard.xml" value="0.1" />
+        <entry key="..\:/Users/paliy/AndroidStudioProjects/MovieShowcase/app/src/main/res/layout/fragment_dashboard.xml" value="0.18" />
         <entry key="..\:/Users/paliy/AndroidStudioProjects/MovieShowcase/app/src/main/res/layout/fragment_detail.xml" value="0.25" />
         <entry key="..\:/Users/paliy/AndroidStudioProjects/MovieShowcase/app/src/main/res/layout/item_dashboard_carousel.xml" value="0.1" />
         <entry key="..\:/Users/paliy/AndroidStudioProjects/MovieShowcase/app/src/main/res/layout/item_now_showing.xml" value="0.1" />
         <entry key="..\:/Users/paliy/AndroidStudioProjects/MovieShowcase/app/src/main/res/menu/mennu_detail.xml" value="0.10092592592592593" />
+        <entry key="..\:/Users/paliy/AndroidStudioProjects/MovieShowcase/app/src/main/res/menu/menu_home.xml" value="0.10092592592592593" />
       </map>
     </option>
   </component>

@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.cardview.widget.CardView
+import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.FragmentNavigatorExtras
@@ -52,6 +53,24 @@ class DashboardFragment : Fragment(), MoviesInterface {
         mViewModel.trendingMovies.observe(viewLifecycleOwner) {
             mNowShowingAdapter.submitList(it)
         }
+
+        binding.nestedScrollView.setOnScrollChangeListener(object : NestedScrollView.OnScrollChangeListener{
+            override fun onScrollChange(
+                v: NestedScrollView?,
+                scrollX: Int,
+                scrollY: Int,
+                oldScrollX: Int,
+                oldScrollY: Int
+            ) {
+                val topContentHeight = binding.recyclerViewHeader.measuredHeight + binding.txtNowShowing.measuredHeight
+                if(scrollY >= topContentHeight){
+                    binding.toolBar.title = binding.txtNowShowing.text
+                }else{
+                    binding.toolBar.title = "Movies"
+                }
+            }
+
+        })
     }
 
     override fun onItemClick(movieModel: MovieModel, cardView: CardView, imageView: ImageView) {

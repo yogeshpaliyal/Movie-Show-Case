@@ -7,7 +7,8 @@ data class MovieModel(
     val poster_path: String,
     val backdrop_path: String,
     val title: String,
-    val release_date: String
+    val release_date: String,
+    val overview: String,
 ){
     fun getPosterPath() = IMAGE_BASE_URL + poster_path
 

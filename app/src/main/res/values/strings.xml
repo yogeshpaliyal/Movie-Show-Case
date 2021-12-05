@@ -6,4 +6,5 @@
 
     <string name="transition_name_card">card</string>
     <string name="transition_name_image">image</string>
+    <string name="search">Search</string>
 </resources>
