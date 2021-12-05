@@ -15,3 +15,4 @@ Movie Show Case is a sample Android project using <a href="https://www.themovied
 * Android architecture components and Jetpack libraries
 * Single activity pattern
 * Dependency injection
+* Motion Layout
