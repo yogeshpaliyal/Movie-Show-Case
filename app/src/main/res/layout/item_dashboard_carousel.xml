@@ -13,6 +13,8 @@
         android:focusable="true"
         android:transitionName="@string/transition_name_card"
         app:cardUseCompatPadding="true"
+        app:cardElevation="@dimen/grid_1"
+        app:cardCornerRadius="@dimen/grid_1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

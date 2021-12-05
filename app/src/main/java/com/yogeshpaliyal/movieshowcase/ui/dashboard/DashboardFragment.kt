@@ -16,6 +16,12 @@ import com.yogeshpaliyal.movieshowcase.data.model.MovieModel
 import com.yogeshpaliyal.movieshowcase.databinding.FragmentDashboardBinding
 import com.yogeshpaliyal.movieshowcase.ui.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import androidx.recyclerview.widget.PagerSnapHelper
+
+import androidx.recyclerview.widget.SnapHelper
+
+
+
 
 @AndroidEntryPoint
 class DashboardFragment : Fragment(), MoviesInterface {
@@ -45,6 +51,9 @@ class DashboardFragment : Fragment(), MoviesInterface {
         super.onViewCreated(view, savedInstanceState)
         binding.recyclerViewHeader.adapter = carousedAdapter
         binding.rvNowShowing.adapter = mNowShowingAdapter
+
+        val snapHelper: SnapHelper = PagerSnapHelper()
+        snapHelper.attachToRecyclerView(binding.recyclerViewHeader)
 
         mViewModel.trendingMovies.observe(viewLifecycleOwner) {
             carousedAdapter.submitList(it)
