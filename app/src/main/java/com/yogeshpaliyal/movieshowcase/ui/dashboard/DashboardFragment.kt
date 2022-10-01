@@ -20,9 +20,6 @@ import androidx.recyclerview.widget.PagerSnapHelper
 
 import androidx.recyclerview.widget.SnapHelper
 
-
-
-
 @AndroidEntryPoint
 class DashboardFragment : Fragment(), MoviesInterface {
 
@@ -42,7 +39,7 @@ class DashboardFragment : Fragment(), MoviesInterface {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentDashboardBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
@@ -63,22 +60,13 @@ class DashboardFragment : Fragment(), MoviesInterface {
             mNowShowingAdapter.submitList(it)
         }
 
-        binding.nestedScrollView.setOnScrollChangeListener(object : NestedScrollView.OnScrollChangeListener{
-            override fun onScrollChange(
-                v: NestedScrollView?,
-                scrollX: Int,
-                scrollY: Int,
-                oldScrollX: Int,
-                oldScrollY: Int
-            ) {
-                val topContentHeight = binding.recyclerViewHeader.measuredHeight + binding.txtNowShowing.measuredHeight
-                if(scrollY >= topContentHeight){
-                    binding.toolBar.title = binding.txtNowShowing.text
-                }else{
-                    binding.toolBar.title = "Movies"
-                }
+        binding.nestedScrollView.setOnScrollChangeListener(NestedScrollView.OnScrollChangeListener { v, scrollX, scrollY, oldScrollX, oldScrollY ->
+            val topContentHeight = binding.recyclerViewHeader.measuredHeight + binding.txtNowShowing.measuredHeight
+            if(scrollY >= topContentHeight){
+                binding.toolBar.title = binding.txtNowShowing.text
+            }else{
+                binding.toolBar.title = "Movies"
             }
-
         })
     }
 
