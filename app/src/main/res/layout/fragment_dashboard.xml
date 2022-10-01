@@ -20,6 +20,7 @@
             android:layout_height="wrap_content"
             app:titleCentered="true"
             app:title="Movies"
+            android:background="?attr/colorPrimary"
             android:id="@+id/toolBar"
             app:menu="@menu/menu_home"
             app:navigationIcon="@drawable/ic_round_menu_24"
