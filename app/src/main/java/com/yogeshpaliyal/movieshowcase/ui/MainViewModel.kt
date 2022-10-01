@@ -11,7 +11,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class MainViewModel @Inject constructor(val apiInterface: ApiInterface) : ViewModel() {
+class MainViewModel @Inject constructor(private val apiInterface: ApiInterface) : ViewModel() {
 
     private val _trendingMovies = MutableLiveData<List<MovieModel>>()
     val trendingMovies = _trendingMovies.toLiveData()
@@ -34,14 +34,14 @@ class MainViewModel @Inject constructor(val apiInterface: ApiInterface) : ViewMo
         _selectedMovieModel.value = movieModel
     }
 
-    fun loadTrendingMovies() {
+    private fun loadTrendingMovies() {
         viewModelScope.launch {
             val response = apiInterface.getTrendingMovies()
             _trendingMovies.postValue(response.body()?.results)
         }
     }
 
-    fun loadNowShowing() {
+    private fun loadNowShowing() {
         viewModelScope.launch {
             val response = apiInterface.getNowShowing()
             _trendingMovies.postValue(response.body()?.results)

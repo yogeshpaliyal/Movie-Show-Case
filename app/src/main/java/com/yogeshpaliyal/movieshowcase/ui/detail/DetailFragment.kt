@@ -2,21 +2,18 @@ package com.yogeshpaliyal.movieshowcase.ui.detail
 
 import android.graphics.drawable.Drawable
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.constraintlayout.motion.widget.MotionLayout
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
-import androidx.transition.ChangeBounds
 import androidx.transition.TransitionInflater
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
-import com.yogeshpaliyal.movieshowcase.R
 import com.yogeshpaliyal.movieshowcase.data.model.MovieModel
 import com.yogeshpaliyal.movieshowcase.databinding.FragmentDetailBinding
 import com.yogeshpaliyal.movieshowcase.ui.MainViewModel
@@ -42,9 +39,7 @@ class DetailFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-
-
+    ): View {
         binding = FragmentDetailBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -63,7 +58,6 @@ class DetailFragment : Fragment() {
 
 
     private fun updateUI(movieModel: MovieModel){
-
         Glide.with(binding.imgCover).load(movieModel.getPosterPath()).addListener(object : RequestListener<Drawable>{
             override fun onLoadFailed(
                 e: GlideException?,
