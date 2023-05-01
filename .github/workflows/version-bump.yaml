@@ -54,6 +54,7 @@ jobs:
         with:
           tag: ${{ steps.bump-app-version.outputs.newVersion }}
           generateReleaseNotes: true
+          commit: "master"
 
       # - name: Create Pull Request
       #   uses: peter-evans/create-pull-request@v5.0.0
