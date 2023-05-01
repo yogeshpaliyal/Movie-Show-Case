@@ -33,12 +33,19 @@ jobs:
           RELEASE_NOTES: ${{ inputs.releaseNote }}
         
         
-      - name: Push changes to protected branch
-        uses: ad-m/github-push-action@master
+      - name:Git Add and Commit
+        run: |
+            git config --global user.name 'Yogesh Choudhary Paliyal'
+            git config --global user.email 'yogeshpaliyal@users.noreply.github.com'
+            git commit -am "Automated version bump"
+
+
+      - name: Push to protected branch
+        uses: CasperWA/push-protected@v2
         with:
-          branch: master
-          directory: .
-          github_token: ${{ secrets.PUSH_TO_PROTECTED_BRANCH }}
+          token: ${{ secrets.PUSH_TO_PROTECTED_BRANCH }}
+          branch: main
+          unprotect_reviews: true
 
       # - name: Create Pull Request
       #   uses: peter-evans/create-pull-request@v5.0.0
