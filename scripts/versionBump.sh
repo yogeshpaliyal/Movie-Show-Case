@@ -37,5 +37,5 @@ sed -i "s/versionName \"$VERSION_NAME\"/versionName \"$NEW_VERSION_NAME\"/" app/
 echo "New versionCode: $NEW_VERSION_CODE"
 echo "New versionName: $NEW_VERSION_NAME"
 
-echo "$RELEASE_NOTES" > whatsnew/whatsnew-en-US
-echo "$RELEASE_NOTES" > fastlane/metadata/android/en-US/changelogs/${NEW_VERSION_CODE}.txt
+#echo "$RELEASE_NOTES" > whatsnew/whatsnew-en-US
+#echo "$RELEASE_NOTES" > fastlane/metadata/android/en-US/changelogs/${NEW_VERSION_CODE}.txt
