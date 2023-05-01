@@ -1,0 +1,45 @@
+name: Bump App Version
+on: 
+  workflow_dispatch:
+    inputs:
+      type:
+        description: 'Bump type'
+        required: true
+        default: 'patch'
+        type: choice
+        options:
+        - patch
+        - minor
+        - major
+      releaseNote:
+        description: 'Release Note'
+        required: true
+        type: string
+
+jobs:
+  bump:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Checkout
+        run: |
+            git checkout -b autoVersionBump
+
+      - name: 🏗 Bump App Version
+        run: ls && bash ./scripts/versionBump.sh $TYPE "$RELEASE_NOTES"
+        env:
+          TYPE: ${{ inputs.type }}
+          RELEASE_NOTES: ${{ inputs.releaseNote }}
+        
+        
+      # - name: Version Bump
+      #   run: |
+      #       git config --global user.name 'Yogesh Choudhary Paliyal'
+      #       git config --global user.email 'yogeshpaliyal@users.noreply.github.com'
+      #       git commit -am "Automated version bump"
+      #       git push
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5.0.0
+
