@@ -31,6 +31,7 @@ jobs:
         run: |
           newVersion=$(bash ./scripts/versionBump.sh $TYPE "$RELEASE_NOTES")
           echo "::newVersion::$newVersion"
+          echo "newVersion=$newVersion" >> "$GITHUB_OUTPUT"
         env:
           TYPE: ${{ inputs.type }}
           RELEASE_NOTES: ${{ inputs.releaseNote }}
