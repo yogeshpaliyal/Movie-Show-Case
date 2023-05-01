@@ -33,7 +33,7 @@ jobs:
           RELEASE_NOTES: ${{ inputs.releaseNote }}
         
         
-      - name:Git Add and Commit
+      - name: Git Add and Commit
         run: |
             git config --global user.name 'Yogesh Choudhary Paliyal'
             git config --global user.email 'yogeshpaliyal@users.noreply.github.com'
