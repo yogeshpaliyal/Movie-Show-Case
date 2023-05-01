@@ -34,7 +34,7 @@ sed -i "s/versionCode $VERSION_CODE/versionCode $NEW_VERSION_CODE/" app/build.gr
 sed -i "s/versionName \"$VERSION_NAME\"/versionName \"$NEW_VERSION_NAME\"/" app/build.gradle
 
 # Output the new versionCode and versionName values
-#echo "New versionCode: $NEW_VERSION_CODE"
+echo "New versionCode: $NEW_VERSION_CODE"
 echo "$NEW_VERSION_NAME"
 
 #echo "$RELEASE_NOTES" > whatsnew/whatsnew-en-US
