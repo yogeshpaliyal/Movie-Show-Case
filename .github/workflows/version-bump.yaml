@@ -22,9 +22,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Checkout
-        run: |
-            git checkout -b autoVersionBump
+      # - name: Checkout
+      #   run: |
+      #       git checkout -b autoVersionBump
 
       - name: 🏗 Bump App Version
         run: ls && bash ./scripts/versionBump.sh $TYPE "$RELEASE_NOTES"
