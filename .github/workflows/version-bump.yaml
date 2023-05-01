@@ -29,7 +29,8 @@ jobs:
       - name: 🏗 Bump App Version
         id: bump-app-version
         run: |
-          bash echo "newVersion=$(./scripts/versionBump.sh $TYPE "$RELEASE_NOTES")"
+          newVersion=$(bash ./scripts/versionBump.sh $TYPE "$RELEASE_NOTES")
+          echo "newVersion: $newVersion"
         env:
           TYPE: ${{ inputs.type }}
           RELEASE_NOTES: ${{ inputs.releaseNote }}
