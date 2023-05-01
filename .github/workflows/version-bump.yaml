@@ -41,7 +41,7 @@ jobs:
             git commit -am "Automated version bump"
 
       - name: Print newVersion
-        run: echo ${{ steps.bump-app-version.outputs.newVersion }}
+        run: echo "${{ steps.bump-app-version.outputs.newVersion }}"
 
       - name: Push to protected branch
         uses: CasperWA/push-protected@v2
@@ -54,7 +54,7 @@ jobs:
       - name: Create Release
         uses: ncipollo/release-action@v1.12.0
         with:
-          tag: ${{ steps.bump-app-version.outputs.newVersion }}
+          tag: "${{ steps.bump-app-version.outputs.newVersion }}"
           generateReleaseNotes: true
           commit: "master"
 
