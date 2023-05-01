@@ -40,6 +40,8 @@ jobs:
             git config --global user.email 'yogeshpaliyal@users.noreply.github.com'
             git commit -am "Automated version bump"
 
+      - name: Print newVersion
+        run: echo ${{ steps.bump-app-version.outputs.newVersion }}
 
       - name: Push to protected branch
         uses: CasperWA/push-protected@v2
