@@ -28,7 +28,7 @@ jobs:
 
       - name: 🏗 Bump App Version
         id: bump-app-version
-        run: newVersion=$(bash ./scripts/versionBump.sh $TYPE "$RELEASE_NOTES")
+        run: bash  newVersion=$(./scripts/versionBump.sh $TYPE "$RELEASE_NOTES")
         env:
           TYPE: ${{ inputs.type }}
           RELEASE_NOTES: ${{ inputs.releaseNote }}
@@ -43,12 +43,12 @@ jobs:
       - name: Print newVersion
         run: echo "${{ steps.bump-app-version.outputs.newVersion }}"
 
-      - name: Push to protected branch
-        uses: CasperWA/push-protected@v2
-        with:
-          token: ${{ secrets.PUSH_TO_PROTECTED_BRANCH }}
-          branch: main
-          unprotect_reviews: true
+      # - name: Push to protected branch
+      #   uses: CasperWA/push-protected@v2
+      #   with:
+      #     token: ${{ secrets.PUSH_TO_PROTECTED_BRANCH }}
+      #     branch: main
+      #     unprotect_reviews: true
 
 
       - name: Create Release
